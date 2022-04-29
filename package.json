@@ -1,0 +1,24 @@
+{
+  "name": "assessment-backend",
+  "version": "1.0.0",
+  "description": "API REST - FAVS-LIST",
+  "main": "index.js",
+  "scripts": {
+    "dev" : "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franciscomoncadab/Assessment-Back-End-MakeItReaL.git"
+  },
+  "author": "Francisco Moncada B",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franciscomoncadab/Assessment-Back-End-MakeItReaL/issues"
+  },
+  "homepage": "https://github.com/franciscomoncadab/Assessment-Back-End-MakeItReaL#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
