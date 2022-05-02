@@ -6,10 +6,16 @@ const User = new mongoose.Schema({
           type: 'string',
           unique: true, 
           mach: [/.+\@.+\..+/, 'Ingrese un email valido'], // Validacion para el email
-          required: true},
+          required: true,
+          trim: true,
+          lowercase: true,
+     },
      password: {
           type: 'string',
-          required: true},
+          required: true,
+          trim: true,
+          minLength: [6, 'Password should have a min of 6 characters'],
+     },
      signUpDate: {
           type: Date,
           default: Date.now()},
@@ -32,12 +38,12 @@ UserSchema.pre('save', function (next) {
      })
 });
 
-UserSchema.methods.comparePassword = async function (password) {
+/*UserSchema.methods.comparePassword = async function (password) {
      return await bcrypt.compare(password, this.password)
 }
 
 UserSchema.methods.validatePassword = async function (password) {
      return await bcrypt.validate(password)
-}
+}*/
 
 module.exports = mongoose.model('User', User);
