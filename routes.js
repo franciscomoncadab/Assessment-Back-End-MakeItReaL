@@ -1,10 +1,11 @@
-const favsList = require("./api/favs");
-const user = require("./api/user");
-const isAuth = require("./middlewares/auth");
+const FavsList = require("./api/Favs/");
+const Users = require("./api/Users/");
+const isAuth = require("./middleware/auth");
 
-const routes =(app) => {
-  app.use("/api/favs", isAuth, favsList);
-  app.use("/auth/local", user);
+function routes(app) {
+  app.use("/api/favs", isAuth, FavsList);
+  app.use("/auth/local/", Users);
+  //app.use("/users", Users);
 }
 
 module.exports = routes;

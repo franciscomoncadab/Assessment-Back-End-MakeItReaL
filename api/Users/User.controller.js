@@ -14,15 +14,15 @@ async function createUser(req, res) {
      }
 };
 
-async function login(req, res) {
+async function Login(req, res) {
      const {email, password} = req.body;
 
-     const user = await User.findOne({ email})
+     const user = await User.findOne({ email })
      const checkPassword = await bcrypt.compare(password, user.password);
 
      if (user && checkPassword) {
-          const token = jwt.sign({ id: user._id, email}, process.env.JWT_KEY_SECRET, 
-          {expireIn: process.env.JWT_TIME_EXPIRED},
+          const token = jwt.sign({ id: user._id, email}, process.env.JWT_KEY_SECRET, {
+          expiresIn: '2h'},
           );
           res.status(200).json({token});
      } else {
@@ -30,7 +30,13 @@ async function login(req, res) {
      }
 };
 
+async function getAllUsers(req, res) {
+     const Users = await User.find()
+     res.status(200).json(Users);
+};
+
 module.exports = {
      createUser,
-     login,
+     Login,
+     getAllUsers
 }
