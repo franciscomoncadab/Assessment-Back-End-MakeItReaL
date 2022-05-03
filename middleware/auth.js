@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-function isAuthenticated(req, res, next) {
+function isAuth(req, res, next) {
   try {
     const [tokenType, tokenValue] = req.headers.authorization.split(" ");
     const verifiedToken = jwt.verify(tokenValue, process.env.JWT_KEY_SECRET);
@@ -13,4 +13,4 @@ function isAuthenticated(req, res, next) {
   }
 }
 
-module.exports = isAuthenticated
+module.exports = isAuth
